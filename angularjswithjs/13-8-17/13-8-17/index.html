@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="appname">
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		
+		<!-- $scope is glu object txtname is property  -->
+		<script>
+			angular.module("appname",[]).controller("validate_data",function($scope){
+				// $scope.txtname="hello";
+				// $scope.result="answerrr";
+				$scope.check = function(){
+					 //console.log($scope);
+					if(!$scope.textname){
+						$scope.result="please enter name";
+					}
+					else{
+						// Regular Expression Example
+						//Amar Shah
+						// ^ = A | $ = h
+						// pattern = /^[a-zA-Z][a-zA-Z ]{1,}[a-zA-Z]$/
+						pattern = /^[a-zA-Z][a-zA-Z ]+[a-zA-Z]$/;
+						result = pattern.test($scope.textname);
+						//console.log(result);
+						if(result == true){
+							$scope.result = "valid name";
+						}
+						else{
+							$scope.result = "Invalid Name";
+						}
+					}
+				}
+			});
+		</script>
+		
+	</head>
+	
+	<body>
+	
+		<div ng-controller="validate_data">
+			<ul>
+				<li>Enter Name</li>
+				<li><input type="text" ng-model="textname"></li>
+				<li>Enter Email</li>
+				<li><input type="email" ng-model="email"></li>
+				<li><input type="button" ng-click="check()" value="Enter"></li>
+				<li ng-bind="result"></li>
+			</ul>
+		</div>
+		
+	</body>  
+</html>

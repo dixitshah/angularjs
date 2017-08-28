@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="appdata">
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		
+		
+		<script>
+			// Predefine $scope glu object ko replace kar sakte he
+			angular.module("appdata",[]).controller("validate_data",["$scope",function(xyz){
+				xyz.msg=100;
+			}])
+		</script>
+		
+	</head>
+	
+	<body>
+	
+		<div ng-controller="validate_data">
+			{{msg}}
+		</div>
+		
+	</body>  
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="appname">
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		
+		
+		<script>
+			angular.module("appname",[]).controller("getdata",["$scope","$http",
+				function(xyz,$http){
+					xyz.msg = "TEST";
+					xyz.change_data=function()
+					{
+						// xyz.msg = "NEW DATA";
+						// console.log($http);
+						$http.get("dummy.json").then(function(response_data){
+							// console.log(response_data.data);
+							xyz.msg = response_data.data;
+						});
+					}
+				}
+			])
+		</script>
+		
+	</head>
+	
+	<body>
+		<div ng-controller="getdata">
+			<div class="container" ng-include="'header.html'"></div>
+			<hr/>
+			<div class="container">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati reiciendis consequuntur corporis possimus voluptatum illum nam quidem adipisci, architecto, fugiat accusamus numquam sunt perspiciatis, quas in ducimus molestiae magnam quaerat!
+			<br/>
+			<ul>
+				<li ng-repeat="ans in msg">
+					{{ans.name +"=="+ ans.age}}
+				</li>
+			</ul>
+			<!-- {{msg}} -->
+			<button ng-click="change_data()">Enter</button>
+			</div>
+			<hr/>
+			<div class="container" ng-include="'footer.html'"></div>
+		</div>
+	</body>  
+</html>

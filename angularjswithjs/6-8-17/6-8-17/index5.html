@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<script src="angular.min.js">
+		</script>
+	</head>
+	
+	<body>
+		<!-- Object Declaration and Printing -->
+		<div ng-init="x1=['PHP','MYSQL','JAVASCRIPT']">
+			<ul>
+				<li>{{x1[0]}}</li>
+				<li>{{x1[1]}}</li>
+				<li>{{x1[2]}}</li>
+			</ul>
+			<ul>
+				<li ng-repeat="answer in x1">
+					{{answer}}
+				</li>
+			</ul>
+			<ul>
+				<li ng-repeat="(x,answer) in x1">
+					{{x + "===" + answer}}
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

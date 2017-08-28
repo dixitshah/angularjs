@@ -1,0 +1,17 @@
+
+<input type="text" id="text" onkeyup="change(this)">
+<p id="para">hello</p>
+
+<noscript>
+hello
+</noscript>
+
+<script>
+
+change = function(xyz){
+	// console.log(xyz)
+	document.getElementById("para").innerHTML = xyz.value;
+}
+
+</script>
+

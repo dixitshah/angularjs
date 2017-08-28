@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="angular.min.js">
+		</script>
+	</head>
+	
+	<body>
+		<div class="container" ng-init="user=[{name:'ajay',age:20},{name:'ameya',age:21},{name:'akki',age:23}]">
+			<table class="table">
+				<tr>
+					<th>Name</th>
+					<th>Age</th>
+				</tr>
+				<tr ng-repeat="answer in user">
+					<td>{{answer.name|uppercase}}</td>
+					<td>{{answer.age}}</td>
+				</tr>
+			</table>
+		</div>
+	</body>  
+</html>

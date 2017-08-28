@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="appname">
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="angular.min.js"></script>
+		<script>
+			var app = angular.module("appname",[]);
+			//console.log(app)
+			app.controller("ctrl1",function($scope){
+				$scope.x1=100;
+			});
+			app.controller("ctrl2",function($scope){
+				$scope.x1=200;
+			});
+		</script>
+		<!-- Glu Object | One Way Binding html to javascript or javascript to html -->
+		
+	</head>
+	
+	<body>
+	
+		<div ng-controller="ctrl1">
+			{{x1}}
+		</div>
+		<div ng-controller="ctrl2">
+			{{x1}}
+		</div>
+		
+	</body>  
+</html>

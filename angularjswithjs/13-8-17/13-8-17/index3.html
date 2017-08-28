@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="appdata">
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		
+		
+		<script>
+		
+			// $rootScope 
+		
+			app = angular.module("appdata",[]);
+			app.run(function($rootScope){
+				// console.log($rootScope);
+				$rootScope.ans = 1000;
+			});
+			
+			app.controller("ctrl1",function($scope,$rootScope){
+				// console.log($scope);
+				$scope.msg=100;
+				$scope.msg1=$rootScope.ans;
+			})
+			
+			app.controller("ctrl2",function($scope,$rootScope){
+				// console.log($scope);
+				$scope.msg=200;
+				$scope.msg1=$rootScope.ans;
+			})
+		</script>
+		
+	</head>
+	
+	<body>
+	
+		<div ng-controller="ctrl1">
+			{{msg}}
+			<br>
+			{{msg1}}
+		</div>
+		
+		<div ng-controller="ctrl2">
+			{{msg}}
+			<br>
+			{{msg1}}
+		</div>
+		
+	</body>  
+</html>

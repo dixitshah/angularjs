@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>-->
+		
+		<link rel="stylesheet" href="bootstrap.min.css">
+		<script src="angular.min.js"></script>
+		<script src="angular-route.js"></script>
+		
+		<script>
+			
+		</script>
+		
+		<style>
+			.redclass { background:red; color:white; padding:10px; }
+			.blueclass { background:blue; color:white; padding:10px; }
+			.greenclass { background:green; color:white; padding:10px; }
+		</style>
+		
+	</head>
+	
+	<body>
+	
+		<div class="container" ng-init="status='greenclass'">
+			<select ng-model="status">
+				<option value="redclass">RED</option>
+				<option value="blueclass">BLUE</option>
+			</select>
+			<input type="text" ng-model="status">
+			<div ng-class="status">
+				lorem ipsum dolor sit amet lorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit amet
+			</div>
+			<div ng-class="status">
+				lorem ipsum dolor sit amet lorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit ametlorem ipsum dolor sit amet
+			</div>
+			{{::status}}
+		</div>
+		
+		
+	</body>  
+</html>

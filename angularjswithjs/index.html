@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html ng-app="crudapp">
+	<head>
+		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>-->
+		
+		<link rel="stylesheet" href="bootstrap.min.css">
+		<script src="angular.min.js"></script>
+		
+		<script>
+			appname=angular.module("crudapp",[]);
+			
+			appname.controller("crudController",function($scope){
+				$scope.status1 = true;
+				$scope.status2 = false;
+				$scope.result = [];
+				$scope.postr = "";
+				$scope.add_data=function(rec){
+					//console.log(rec)
+					//console.log($scope.formadd);
+					$scope.result.push($scope.formadd);
+					//console.log($scope.result);
+					$scope.formadd={};
+				}
+				
+				$scope.delete_data=function(rec){
+					//console.log(rec);
+					var pos = $scope.result.indexOf(rec);
+					//console.log(pos);
+					// remove data of that position
+					$scope.result.splice(pos,1);
+					console.log($scope.result);
+				}
+				
+				$scope.edit_data=function(rec,i){
+					//console.log(rec)
+					//console.log(i)
+					$scope.formadd.pname = rec.pname;
+					$scope.formadd.pmobile = rec.pmobile;
+					
+					$scope.status1=false;
+					$scope.status2=true;
+					
+					$scope.postr=i;
+				}
+				
+				$scope.update_data=function(rec){
+					console.log(rec)
+					console.log($scope.postr);
+					console.log($scope.result);
+					$scope.result[$scope.postr].pname=rec.pname;
+					$scope.result[$scope.postr].pmobile=rec.pmobile;
+					$scope.formadd={};
+					
+					$scope.status1=true;
+					$scope.status2=false;
+				}	
+			})
+		</script>
+		
+	</head>
+	
+	<body>
+		<div class="container" ng-controller="crudController">
+		<form action="">
+		<div class="form-group">
+		  <label for="email">Name:</label>
+		  <input type="text" class="form-control" ng-model="formadd.pname" placeholder="Enter Name">
+		</div>
+		<div class="form-group">
+		  <label for="pwd">Mobile:</label>
+		  <input type="text" class="form-control" ng-model="formadd.pmobile" placeholder="Enter mobile">
+		</div>
+		<span ng-if="status1">
+		<input type="button" ng-click="add_data(formadd)" class="btn btn-success" value="Add">
+		</span>
+		<span ng-if="status2">
+		<input type="button" ng-click="update_data(formadd)" class="btn btn-warning" value="Update">
+		</span>
+	  </form>
+	  
+		<div>{{msg}}</div>
+	  
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Delete</th>
+		<th>Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr>
+        <td><input type="text" ng-model="searchdata.pname"></td>
+        <td><input type="text" ng-model="searchdata.pmobile"></td>
+        <td><input type="text" ng-model="searchdata"></td>
+      </tr> -->
+      <tr ng-repeat="answer in result|filter:searchdata ">
+        <td>{{answer.pname}}</td>
+        <td>{{answer.pmobile}}</td>
+        <td><input type="button" value="delete" class="btn btn-danger" ng-click="delete_data(answer)"/></td>
+		<td><input type="button" value="edit" class="btn btn-info" ng-click="edit_data(answer,$index)"/></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+		
+	</body>  
+</html>

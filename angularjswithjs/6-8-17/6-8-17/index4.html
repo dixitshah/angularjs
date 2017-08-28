@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<script src="angular.min.js">
+		</script>
+	</head>
+	
+	<body>
+		<!-- Object Declaration and Printing -->
+		<div ng-init="x1={name:'hello',surname:'world'}">
+			{{x1.name + x1.surname}}
+			{{x1['name'] + "==" + x1['surname']}}
+		</div>
+	</body>
+</html>

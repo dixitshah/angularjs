@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app="appdata">
+	<head>
+		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>-->
+		
+		<link rel="stylesheet" href="bootstrap.min.css">
+		<script src="angular.min.js"></script>
+		<script src="angular-route.js"></script>
+		
+		<script>
+			
+			appname=angular.module("appdata",[]);
+			
+			appname.controller("userdata",function($scope,my_service){
+				$scope.name = "Sanman Mandlik";
+				$scope.age = 20;
+				
+				$scope.add =function(){
+					$scope.msg1 = my_service.add_data($scope.rec0,$scope.rec1);
+				}				
+				
+			})
+			
+			appname.controller("userdata1",function($scope,my_service){
+				
+				$scope.sub =function(){
+					$scope.msg2 = my_service.minus_data($scope.rec2,$scope.rec3);
+				}				
+				
+			})
+			
+			appname.service("my_service",function(){
+				this.add_data=function(value1,value2){
+					return value1 + value2;
+				}
+			
+				this.minus_data=function(value1,value2){
+					return value1 - value2;
+				}
+			})
+		</script>
+		
+	</head>
+	
+	<body>
+	
+		<div class="container" ng-controller="userdata">
+			<h1>{{name}} {{age}}</h1>
+			
+			<h2>Addition</h2>
+			<p>
+				<input type="number" ng-model="rec0" placeholder="Enter Number">
+				<input type="number" ng-model="rec1" placeholder="Enter Number">
+				<input type="button" ng-click="add()" value="Enter">
+				<span>{{msg1}}</span>
+			</p>
+		</div>
+		
+		<div class="container" ng-controller="userdata1">
+			<h2>Substraction</h2>
+			<p>
+				<input type="number" ng-model="rec2" placeholder="Enter Number">
+				<input type="number" ng-model="rec3" placeholder="Enter Number">
+				<input type="button" ng-click="sub()" value="Enter">
+				<span>{{msg2}}</span>
+			</p>
+		</div>
+		
+	</body>  
+</html>

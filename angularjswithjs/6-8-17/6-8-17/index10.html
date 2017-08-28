@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="appname">
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="angular.min.js"></script>
+		
+		<!-- [] = to call extra modules, example of one way binding, third party css @import -->
+		<!-- object ke through output without predefind scope -->
+		<script>
+			app = angular.module("appname",[]);
+			app.controller("userdata",function(){
+				this.name = "Ajay";
+				this.skills = ["A","B"];
+			})
+		</script>
+		
+	</head>
+	
+	<body>
+	
+		<div ng-controller="userdata as Sobject">
+			{{Sobject.name}}
+			{{Sobject.skills[0]}}
+		</div>
+		
+	</body>  
+</html>

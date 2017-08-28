@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="appname">
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="angular.min.js"></script>
+		
+		<!-- [] = to call extra modules, example of one way binding, third party css @import -->
+		<script>
+			app = angular.module("appname",[]);
+			app.controller("userdata",function($scope){
+				$scope.name = "Ajay";
+				$scope.change=function(){
+					$scope.name = "Vijay";
+				}
+			})
+		</script>
+		
+	</head>
+	
+	<body>
+	
+		<div ng-controller="userdata">
+			<p>{{name}}</p>
+			<p ng-bind="name"></p>
+			<button ng-click="change()">Enter</button>
+		</div>
+		
+	</body>  
+</html>

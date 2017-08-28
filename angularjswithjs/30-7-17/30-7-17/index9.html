@@ -1,0 +1,20 @@
+<noscript>
+hello
+</noscript>
+
+<script>
+// anonymous finction
+check = function(){
+	console.log(100)
+}
+
+console.log(typeof check);
+
+// self Invoke function
+(function(){
+	alert(222)
+})();
+
+</script>
+
+<input type="button" value="enter" onclick="check()">

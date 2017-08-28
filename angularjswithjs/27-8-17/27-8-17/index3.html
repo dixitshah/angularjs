@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="appdata">
+	<head>
+		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>-->
+		
+		<link rel="stylesheet" href="bootstrap.min.css">
+		<script src="angular.min.js"></script>
+		<script src="angular-route.js"></script>
+		
+		<script>
+			var app = angular.module("appdata",["ngRoute"]);
+			
+			app.config(function($routeProvider){
+				//console.log($routeProvider)
+				//console.log(app)
+				$routeProvider
+				.when('/page1',{
+					templateUrl:"page1.php",
+					controller:"page1ctrl"
+				})
+				.when('/page2',{
+					templateUrl:"page2.php",
+					controller:"page2ctrl"
+				})
+				.otherwise({
+					templateUrl:"404.html"
+				})
+			});
+			
+			app.controller("page1ctrl",function($scope){
+				$scope.msg="PAGE 1 MSG";
+			})
+			
+			app.controller("page2ctrl",function($scope){
+				$scope.msg="PAGE 2 MSG";
+			})
+			
+		</script>
+		
+	</head>
+	
+	<body>
+	
+		<div class="container">
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#!">Home</a></li>
+						<li><a href="#!page1">Page 1</a></li>
+						<li><a href="#!page2">Page 2</a></li>
+					</ul>
+				</div>
+			</nav>
+			
+			<!-- <div ng-view></div> -->
+			<!-- <ng-view></ng-view> -->
+			<div class="ng-view"></div>
+		</div>
+		
+	</body>  
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="appdata">
+	<head>
+		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>-->
+		
+		<link rel="stylesheet" href="bootstrap.min.css">
+		<script src="angular.min.js"></script>
+		<script src="angular-route.js"></script>
+		
+		<script>
+			
+			appname=angular.module("appdata",[]);
+			appname.directive("socialicons",function(){
+				return{
+					restrict:"AEC",
+					template:"<div><img src='facebook.png' width='50'><img src='twitter.png' width='50'><img src='linkedin.png' width='50'><img src='instagram.png' width='50'><img src='gplus.png' width='50'></div>"
+				}
+			})
+			
+		</script>
+		
+	</head>
+	
+	<body>
+	
+		<div class="container">
+			<socialicons></socialicons>
+			<div socialicons></div>
+			<div class="socialicons"></div>
+		</div>
+		
+	</body>  
+</html>
